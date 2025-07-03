@@ -1,6 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
-
 # Define image size and Mandelbrot parameters
 img_size = 1000
 max_iter = 100
@@ -19,12 +16,3 @@ for i in range(max_iter):
     mask = np.abs(Z) <= 2
     Z[mask] = Z[mask] ** 2 + C[mask]
     divergence_time[mask & (np.abs(Z) > 2)] = i
-
-# Plot using matplotlib
-plt.figure(figsize=(10, 10))
-plt.imshow(divergence_time, cmap='magma', extent=(-2, 1, -1.5, 1.5))
-plt.colorbar(label='Iteration Count')
-plt.title('Mandelbrot Set (Vectorized)')
-plt.xlabel('Re(c)')
-plt.ylabel('Im(c)')
-plt.show()
